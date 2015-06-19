@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Vizzuality/gfw-ruby-client-library.svg)](https://travis-ci.org/Vizzuality/gfw-ruby-client-library)
 
+[![Inline docs](http://inch-ci.org/github/Vizzuality/gfw-ruby-client-library.svg?branch=master)](http://inch-ci.org/github/Vizzuality/gfw-ruby-client-library)
+
 A Ruby Client library for the [GFW-API](https://github.com/wri/gfw-api). For now this library should not be used for any production apps.
 
 ## Installation
