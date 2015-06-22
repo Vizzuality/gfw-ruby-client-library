@@ -24,6 +24,8 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
 
+  s.add_dependency 'typhoeus', '~> 0.7.2'
+
   s.add_development_dependency 'rake', '~> 10.0'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'coveralls'
