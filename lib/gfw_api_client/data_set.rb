@@ -16,15 +16,7 @@ class DataSet
 							end
 
 		request.on_complete do |response|
-		  if response.success?
-		    response
-		  elsif response.timed_out?
-		    raise "got a time out"
-		  elsif response.code == 0
-		    raise response.return_message
-		  else
-		    raise "HTTP request failed: " + response.code.to_s
-		  end
+		  response if response.success?
 		end
 
 		request.run.body
