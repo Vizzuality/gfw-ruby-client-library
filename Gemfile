@@ -7,7 +7,7 @@ if ENV['RAILS_VERSION']
 end
 
 group :development do
-	gem 'pry'
+  gem 'pry'
 end
 
 group :test do
