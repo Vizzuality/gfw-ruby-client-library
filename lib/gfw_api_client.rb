@@ -19,7 +19,7 @@ module GfwApiClient
     type        = options['type']        if options['type']
     geojson     = options['geo_json']    if options['geo_json']
 
-    period = if start_date && end_date
+    period = if (start_date && end_date)
                start_date + ',' + end_date
              end
 
