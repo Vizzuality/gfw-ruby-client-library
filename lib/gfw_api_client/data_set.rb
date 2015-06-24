@@ -1,6 +1,5 @@
 class DataSet
-
-  def self.find_set(table_space, concessions=nil, country=nil, region=nil, wdpa_id=nil, use_id=nil, type=nil, period=nil)
+  def self.find_set(table_space, concessions=nil, country=nil, region=nil, wdpa_id=nil, use_id=nil, type=nil, period=nil, geojson=nil)
 
     request = case concessions
               when 'iso'
@@ -13,6 +12,8 @@ class DataSet
                 Typhoeus::Request.new("http://staging.gfw-apis.appspot.com/forest-change/#{table_space}/wdpa/#{wdpa_id}?period=#{period}", followlocation: true)
               when 'use'
                 Typhoeus::Request.new("http://staging.gfw-apis.appspot.com/forest-change/#{table_space}/use/#{type}/#{use_id}?period=#{period}", followlocation: true)
+			  when 'geojson'
+				Typhoeus::Request.new("http://staging.gfw-apis.appspot.com/forest-change/#{table_space}?period=#{period}&type=geojson&geojson=#{CGI::escape(geojson)}", followlocation: true)
               end
 
     request.on_complete do |response|
@@ -22,5 +23,4 @@ class DataSet
     request.run
 
   end
-
 end

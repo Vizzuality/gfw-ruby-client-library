@@ -17,13 +17,14 @@ module GfwApiClient
     wdpa_id     = options['wdpa_id']     if options['wdpa_id']
     use_id      = options['use_id']      if options['use_id']
     type        = options['type']        if options['type']
+    geojson     = options['geo_json']    if options['geo_json']
 
     period = if start_date && end_date
                start_date + ',' + end_date
              end
 
     if table_space
-      DataSet.find_set(table_space, concessions, country, region, wdpa_id, use_id, type, period)
+      DataSet.find_set(table_space, concessions, country, region, wdpa_id, use_id, type, period, geojson)
     else
       raise 'Data set not specified'
     end
