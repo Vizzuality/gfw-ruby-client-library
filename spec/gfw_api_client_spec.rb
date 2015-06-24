@@ -72,6 +72,21 @@ describe 'GfwApiClient data sets' do
         expect(@data_table_body['meta']['id']).to be == table_space
       end
 
+      it "returns a json with data for #{table_space} geojson" do
+        @options = {}
+        @options['table_space'] = "#{table_space}"
+        @options['concessions'] = 'geojson'
+        @options['geo_json'] = '{"type":"Polygon","coordinates":[[[-63.8333,-12.3427],[-63.6218,-12.2407],[-63.6465,-12.4446],[-63.8333,-12.3427]]]}'
+        @options['start_date'] = '2008-01-01'
+        @options['end_date'] = '2014-01-01'
+
+        @data_table      = GfwApiClient.find_set(@options)
+        @data_table_body = JSON.parse(@data_table.body)
+
+        expect(@data_table.code).to eq(200)
+        expect(@data_table_body['meta']['id']).to be == table_space
+      end
+
     end
   end
 
