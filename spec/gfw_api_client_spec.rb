@@ -24,6 +24,8 @@ describe 'GfwApiClient data sets' do
 
         expect(@data_table.code).to eq(200)
         expect(@data_table_body['meta']['id']).to be == table_space
+        expect(@data_table_body['params']['begin']).to be == '2014-01-01'
+        expect(@data_table_body['params']['end']).to be == '2015-01-01'
       end
 
       it "returns a json with data for #{table_space} iso" do
@@ -40,6 +42,8 @@ describe 'GfwApiClient data sets' do
 
         expect(@data_table.code).to eq(200)
         expect(@data_table_body['meta']['id']).to be == table_space
+        expect(@data_table_body['params']['begin']).to be == '2014-01-01'
+        expect(@data_table_body['params']['end']).to be == '2015-01-01'
       end
 
       it "returns a json with data for #{table_space} iso if not all params present" do
@@ -54,6 +58,8 @@ describe 'GfwApiClient data sets' do
 
         expect(@data_table.code).to eq(200)
         expect(@data_table_body['meta']['id']).to be == table_space
+        expect(@data_table_body['params']['begin']).to be_nil
+        expect(@data_table_body['params']['end']).to be_nil
       end
 
       it "returns a json with data for #{table_space} use" do
@@ -70,6 +76,8 @@ describe 'GfwApiClient data sets' do
 
         expect(@data_table.code).to eq(200)
         expect(@data_table_body['meta']['id']).to be == table_space
+        expect(@data_table_body['params']['begin']).to be == '2014-01-01'
+        expect(@data_table_body['params']['end']).to be == '2015-01-01'
       end
 
     end

@@ -20,16 +20,12 @@ module GfwApiClient
 
     period = if start_date && end_date
                start_date + ',' + end_date
-             elsif date
-               date
-             else
-               nil
              end
 
     if table_space
       DataSet.find_set(table_space, concessions, country, region, wdpa_id, use_id, type, period)
     else
-      nil
+      raise 'Data set not specified'
     end
 
   end
