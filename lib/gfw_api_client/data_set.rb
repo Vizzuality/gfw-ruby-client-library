@@ -4,7 +4,11 @@ class DataSet
 
   	request = case concessions
 						  when 'iso'
-								Typhoeus::Request.new("http://staging.gfw-apis.appspot.com/forest-change/#{table_space}/admin/#{country}/#{region}?period=#{period}", followlocation: true)
+						  	path =  "http://staging.gfw-apis.appspot.com/forest-change/#{table_space}/admin/#{country}"
+							  path += "/#{region}" if region
+							  path += "?period=#{period}" if period
+
+								Typhoeus::Request.new(path, followlocation: true)
 							when 'wdpa'
 								Typhoeus::Request.new("http://staging.gfw-apis.appspot.com/forest-change/#{table_space}/wdpa/#{wdpa_id}?period=#{period}", followlocation: true)
 							when 'use'

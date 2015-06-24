@@ -39,6 +39,21 @@ describe GfwApiClient do
       expect(@imazon_iso['value'][1]['value']).to be == 491.900551782574
     end
 
+    it 'returns a json with data for imazon-alerts iso if not all params present' do
+      @options = {}
+      @options['table_space'] = 'imazon-alerts'
+      @options['concessions'] = 'iso'
+      @options['country'] = 'BRA'
+      @options['start_date'] = '2014-01-01'
+
+      @imazon_iso = GfwApiClient.find_set(@options)
+      @imazon_iso = JSON.parse(@imazon_iso)
+      expect(@imazon_iso['value'][0]['data_type']).to be == 'degrad'
+      expect(@imazon_iso['value'][0]['value']).to be == 263622.30134866
+      expect(@imazon_iso['value'][1]['data_type']).to be == 'defor'
+      expect(@imazon_iso['value'][1]['value']).to be == 336735.431496333
+    end
+
     it 'returns a json with data for imazon-alerts use' do
       @options = {}
       @options['table_space'] = 'imazon-alerts'
