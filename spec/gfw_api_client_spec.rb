@@ -141,6 +141,25 @@ describe 'GfwApiClient data sets' do
         expect(@data_table_body['params']['end']).to be_nil unless table_space == 'umd-loss-gain'
       end
 
+      it "returns a json with data for #{table_space} iso and api_url param" do
+        @options = {}
+        @options['table_space'] = "#{table_space}"
+        @options['concessions'] = 'iso'
+        @options['country'] = 'BRA'
+        @options['region'] = '3'
+        @options['start_date'] = '2014-01-01'
+        @options['end_date'] = '2015-01-01'
+        @options['api_url'] = 'http://staging.gfw-apis.appspot.com'
+
+        @data_table      = GfwApiClient.find_set(@options)
+        @data_table_body = JSON.parse(@data_table.body)
+
+        expect(@data_table.code).to eq(200)
+        expect(@data_table_body['meta']['id']).to be == table_space
+        expect(@data_table_body['params']['begin']).to be == '2014-01-01'
+        expect(@data_table_body['params']['end']).to be == '2015-01-01'
+      end
+
     end
   end
 

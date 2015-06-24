@@ -18,12 +18,13 @@ module GfwApiClient
     use_id      = options['use_id']      if options['use_id']
     type        = options['type']        if options['type']
     geojson     = options['geo_json']    if options['geo_json']
+    api_url     = options['api_url']     if options['api_url']
 
     period = if (start_date && end_date)
                start_date + ',' + end_date
              end
 
-    DataSet.find_set(table_space, concessions, country, region, wdpa_id, use_id, type, period, geojson) if table_space
+    DataSet.find_set(table_space, concessions, country, region, wdpa_id, use_id, type, period, geojson, api_url) if table_space
 
   end
 
