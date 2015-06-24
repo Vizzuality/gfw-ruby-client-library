@@ -23,11 +23,7 @@ module GfwApiClient
                start_date + ',' + end_date
              end
 
-    if table_space
-      DataSet.find_set(table_space, concessions, country, region, wdpa_id, use_id, type, period, geojson)
-    else
-      raise 'Data set not specified'
-    end
+    DataSet.find_set(table_space, concessions, country, region, wdpa_id, use_id, type, period, geojson) if table_space
 
   end
 
