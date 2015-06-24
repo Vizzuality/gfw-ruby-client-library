@@ -6,7 +6,7 @@ require 'gfw_api_client/version'
 Gem::Specification.new do |s|
   s.name          = "gfw_api_client"
   s.version       = GfwApiClient::VERSION
-  s.authors       = ["Sebastian Schkudlara "]
+  s.authors       = ["Sebastian Schkudlara"]
   s.email         = ["sebastian.schkudlara@vizzuality.com"]
   s.license       = "MIT"
 
@@ -24,9 +24,9 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency 'typhoeus', '~> 0.7'
+  s.add_runtime_dependency 'typhoeus',      '~> 0.7'
 
-  s.add_development_dependency 'rake', '~> 10.0'
-  s.add_development_dependency 'rspec', '~> 3.1'
+  s.add_development_dependency 'rake',      '~> 10.0'
+  s.add_development_dependency 'rspec',     '~> 3.1'
   s.add_development_dependency 'coveralls', '~> 0.8'
 end
