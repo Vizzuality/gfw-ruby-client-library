@@ -26,6 +26,20 @@ Or install it yourself as:
 
     $ gem install gfw_api_client
 
+Make the following constants, in config/gfw.yaml file:
+
+```ruby
+development:
+  gfw_api_url: http://staging.gfw-apis.appspot.com
+
+test:
+  gfw_api_url: http://staging.gfw-apis.appspot.com
+
+# Read values from the environment in production mode.
+production:
+  gfw_api_url: <%= ENV["GFW_API_URL"] %>
+```
+
 ## Usage
 
 Available data sets (table_space): imazon-alerts, umd-loss-gain, forma-alerts, nasa-active-fires, quicc-alerts, terrai-alerts
@@ -36,6 +50,8 @@ Available data sets (table_space): imazon-alerts, umd-loss-gain, forma-alerts, n
 
 ### Sample:
 ```ruby
+  require 'gfw_api_client'
+
   GfwApiClient.find_set({'table_space' => 'forma-alerts', 'concessions' => 'iso', 'country' => 'BRA', 'region' => '3', 'start_date' => '2014-01-01', 'end_date' => '2015-01-01'})
 ```
 
