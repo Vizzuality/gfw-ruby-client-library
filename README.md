@@ -4,6 +4,12 @@
 
 A Ruby Client library for the [GFW-API](https://github.com/wri/gfw-api). For now this library should not be used for any production apps.
 
+## Requirements and Known Limitations
+
+Tested with MRI 2.0.0, 2.1.5, 2.2.0, JRuby (1.9 mode)
+
+Requires Rails >= 4.0
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +28,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Available data sets (table_space): imazon-alerts, umd-loss-gain, forma-alerts, nasa-active-fires, quicc-alerts, terrai-alerts
+
+### Params:
+
+  [table_space, concessions, wdpa_id, use_id, type, country, region, start_date, end_date, geo_json]
+
+### Sample:
+```ruby
+  GfwApiClient.find_set({'table_space' => 'forma-alerts', 'concessions' => 'iso', 'country' => 'BRA', 'region' => '3', 'start_date' => '2014-01-01', 'end_date' => '2015-01-01'})
+```
 
 ## Development
 

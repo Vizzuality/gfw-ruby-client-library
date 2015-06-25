@@ -8,8 +8,7 @@ class DataSet
     else
       # Get client credentials for GFW API from YML file
       gfw_api_url = if defined?(Rails)
-                      gfw_config = YAML.load(File.read(File.expand_path('config/gfw.yml', Rails.root)))[Rails.env]
-                      gfw_config['gfw_api_url']
+                      gfw_config = YAML.load(File.read(File.expand_path('config/gfw.yml', Rails.root)))[Rails.env]['gfw_api_url']
                     else
                       'http://staging.gfw-apis.appspot.com'
                     end
