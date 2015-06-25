@@ -6,7 +6,7 @@ A Ruby Client library for the [GFW-API](https://github.com/wri/gfw-api). For now
 
 ## Requirements and Known Limitations
 
-Tested with MRI 2.0.0, 2.1.5, 2.2.0, JRuby (1.9 mode)
+Tested with Ruby 2.0.0, 2.1.0, 2.2.0, JRuby (1.9 mode)
 
 Requires Rails >= 4.0
 
